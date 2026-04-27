@@ -43,6 +43,13 @@
     <button class="tab"onclick="switchTab(this)">Test results</button>
 </div>
 <div class ="section-card records-card">
+    <div class="section-header">
+        <span id="records-title">Records</span>
+        <button class="edit-btn" id="edit-record-btn" style="display: none;"
+        onclick="openRecordModal()">
+        <i class="fa-solid fa-pen"></i> Edit Record
+        </button>
+    </div>
     <p class="placeholder-text" id="records-placeholder">No records found</p>
 </div>
 <div class="modal-overlay" id="edit-record-modal" style="display: none;">
@@ -108,10 +115,14 @@
     window.onload = function() {
         const params = new URLSearchParams(window.location.search);
         const tab = params.get('tab');
+        const role = params.get('role');
         if (tab === 'prescriptions') {
             switchTab(document.querySelectorAll('.tab')[1]);
         } else if (tab === 'testresults') {
             switchTab(document.querySelectorAll('.tab')[2]);
+        }
+        if(role === 'clinical'){
+            document.getElementById('edit-record-btn').style.display ='block';
         }
     }
     

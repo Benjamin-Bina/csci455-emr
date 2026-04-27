@@ -22,6 +22,10 @@
     <div class="hero">
         <div class="hero-welcome" id="patient-name"> Patient Name</div>
         <div class="hero-sub">Patient Profile</div>
+        <button class="hero-action-btn" id="view-records-btn" style="display: none;"
+        onclick="window.location.href='medical_records.html?role=clinical'">
+        <i class="fa-solid fa-folder-open"></i> View Medical Records
+    </button>
     </div>
 
     <div class="main-content">
@@ -271,6 +275,8 @@
             document.getElementById('personal-info-btn').onclick = function() {
                 openModal('edit-personal-modal');
             };
+        } else if (role==='clinical') {
+            document.getElementById('view-records-btn').style.display = 'block';
         }
     }
 
