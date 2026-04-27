@@ -1,0 +1,78 @@
+<!-- EMR Log in-->
+<!-- Benjamin Bina-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMR Login</title>
+    <link rel="stylesheet" href = "global.css" />
+    <link rel="stylesheet" href = "emr_login.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class = "logo">
+<i class = "fa-solid fa-stethoscope"></i>
+</div>
+<div class = "page">
+    <h1>Hospital Name</h1>
+    <p>Secure Clinical Access Portal</p>
+</div>
+<div class ="card">
+    <div class ="input-group">
+        <label>Username</label>
+        <div class = "input-wrapper">
+            <i class = "fa-solid fa-user input-icon"></i>
+            <input id="username" placeholder="Enter your clinical ID">
+        </div>
+        
+    </div>
+    <div class ="input-group">
+        <label>Password</label>
+        <div class = "input-wrapper">
+            <i class = "fa-solid fa-lock input-icon"></i>
+            <input type = "password" id = "passwordInput" placeholder = "•••••••">
+            <i class = "fa-solid fa-eye eye-icon" onclick ="togglePassword()"></i>
+
+        </div>
+        
+    </div>
+    
+    <button onclick="handleLogin()">
+        Log In
+    </button>
+    <div class="register-link"><a href="patient_registration.html">Register as a new patient</a></div>
+    
+    <div class = "forgot-password-link">
+        <a href = "#">Forgot Password?</a>
+    </div>
+    <script>
+        function togglePassword() {
+            const input = document.getElementById("passwordInput");
+            const icon = document.querySelector(".eye-icon");
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.replace("fa-eye", "fa-eye-slash");
+            } else {
+                input.type = "password";
+                icon.classList.replace("fa-eye-slash", "fa-eye");
+            }
+
+        }
+        //this function is just to test log in without actual authentication
+        function handleLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('passwordInput').value;
+
+            if (!username || !password) {
+                alert('Please enter your username and password');
+                return;
+            }
+
+            //just a placeholder for redirect before back end integration
+            window.location.href = 'patient_dashboard.html';
+        }
+    </script>
+</div>
+</body>
+</html>
